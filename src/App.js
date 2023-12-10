@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+// client/src/App.js
+import React from "react";
+import { Navigate, Route, Routes } from "react-router-dom";
+import BookingPage from "./Pages/BookingPage";
+import QueuePage from "./Pages/QueuePage";
+import Navigation from "./Components/Navigation/Navigation";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className=" text-slate-800 font-poppins">
+      <Navigation />
+
+      <div className=" p-3">
+        <div className=" max-w-2xl mx-auto bg-white drop-shadow-md rounded-md">
+          <Routes>
+            <Route path="/" element={<Navigate to={"/booking-page"} />}></Route>
+            <Route path="/booking-page" element={<BookingPage />}></Route>
+            <Route path="/queue-page" element={<QueuePage />}></Route>
+          </Routes>
+        </div>
+      </div>
     </div>
   );
-}
+};
 
 export default App;
